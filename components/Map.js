@@ -20,12 +20,12 @@ function MapComponent({searchResults}) {
   });
 
   return (
-    <Map initialViewState={initialViewState} mapLib={import('mapbox-gl')} mapStyle="mapbox://styles/lifecycles1/clhz9a5zj00e801pnbfbn48lb" mapboxAccessToken={process.env.mapbox_key}>
+    <Map initialViewState={initialViewState} mapLib={import('mapbox-gl')} mapStyle="mapbox://styles/lifecycles1/clhz9a5zj00e801pnbfbn48lb" mapboxAccessToken={process.env.mapbox_key} style={{width: 600, }}>
       {searchResults?.map(result => (
         <div key={result.long}>
-          <Marker longitude={result.long} latitude={result.lat}>
+          {/* <Marker longitude={result.long} latitude={result.lat}>
             <p className="cursor-pointer">📌</p>
-          </Marker>
+          </Marker> */}
         </div>
       ))}
     </Map>
