@@ -5,6 +5,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import ProgressBar from "@badrap/bar-of-progress";
 
 function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
@@ -30,8 +31,19 @@ function Header({ placeholder }) {
     setSearchInput("");
   };
 
+  const progress = new ProgressBar({
+    size: 4,
+    color: "#FE595E",
+    className: "z-50",
+    delay: 100,
+  });
+
   const search = () => {
+    progress.start();
     router.push(`/search/${searchInput}/${startDate.toISOString()}/${endDate.toISOString()}/${noOfGuests}`);
+    setTimeout(() => {
+      progress.finish();
+    }, 1000);
   };
 
   return (
