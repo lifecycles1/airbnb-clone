@@ -43,13 +43,21 @@ function Header({ placeholder }) {
     router.push(`/search/${searchInput}/${startDate.toISOString()}/${endDate.toISOString()}/${noOfGuests}`);
     setTimeout(() => {
       progress.finish();
-    }, 1000);
+    }, 2000);
   };
+
+  const backToHome = () => {
+    progress.start();
+    router.push("/");
+    setTimeout(() => {
+      progress.finish();
+    }, 1500);
+  }
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/* left - logo */}
-      <div onClick={() => router.push("/")} className="relative flex items-center h-10 cursor-pointer my-auto">
+      <div onClick={backToHome} className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image src="https://i.imgur.com/gYr2dqo.png" fill className="object-contain object-left" alt="logo" />
       </div>
 

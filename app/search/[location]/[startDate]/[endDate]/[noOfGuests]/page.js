@@ -4,18 +4,19 @@ import Header from "@/components/Header";
 import { usePathname } from "next/navigation";
 import { format } from "date-fns";
 import InfoCard from "@/components/InfoCard";
+import Map from "@/components/Map";
 
 async function Page() {
   const pathname = usePathname();
   const items = pathname.split("/");
   const [, , location, startDate, endDate, noOfGuests] = items;
+  
 
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   const searchResults = await fetch("https://airbnb-clone-lifecycles1.vercel.app/api/properties").then((res) => res.json());
-  console.log(searchResults);
 
   return (
     <div>
@@ -40,6 +41,10 @@ async function Page() {
               <InfoCard key={item.img} img={item.img} location={item.location} title={item.title} description={item.description} star={item.star} price={item.price} total={item.total} />
               ))}
           </div>
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchResults={searchResults}/>
         </section>
       </main>
 
