@@ -6,18 +6,17 @@ import MediumCard from "@/components/MediumCard";
 import SmallCard from "@/components/SmallCard";
 
 export default async function Home() {
-  const exploreData = await fetch("http://localhost:3000/api/smallcards").then((res) => res.json());
-  const cardsData = await fetch("http://localhost:3000/api/cards").then((res) => res.json());
+  // const exploreData = await fetch("http://localhost:3000/api/smallcards").then((res) => res.json());
+  // const cardsData = await fetch("http://localhost:3000/api/cards").then((res) => res.json());
   return (
     <div>
       <Header />
       <Banner />
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
-        <section className="pt-6">
+        {/* <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
 
-          {/* pull some data from our server API endpoints */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {exploreData?.map((item) => (
               <SmallCard key={item.img} img={item.img} distance={item.distance} location={item.location} />
@@ -32,7 +31,7 @@ export default async function Home() {
               <MediumCard key={img} img={img} title={title} />
             ))}
           </div>
-        </section>
+        </section> */}
 
         <LargeCard img="https://i.imgur.com/1xu2Xal.jpg" title="The Greatest Outdoors" description="Wishlists curated by Airbnb." buttonText="Get Inspired" />
       </main>
