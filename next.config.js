@@ -4,8 +4,8 @@ const nextConfig = {
     domains: ["i.imgur.com", "links.papareact.com"],
   },
   env: {
-    mapbox_key: "pk.eyJ1IjoibGlmZWN5Y2xlczEiLCJhIjoiY2xoejkyenRmMWJoejNjbXdzMzExc252MiJ9.1GdEXxGlLkYGsnjDQxH3hg"
-  }
+    mapbox_key: "",
+  },
 };
 
 module.exports = nextConfig;
